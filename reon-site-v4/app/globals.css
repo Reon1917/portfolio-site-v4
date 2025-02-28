@@ -1,17 +1,21 @@
+/* Tailwind directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Root variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
+/* Dark mode variables */
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
 }
 
+/* Base styles */
 body {
   color: var(--foreground);
   background: var(--background);
@@ -22,32 +26,125 @@ html {
   scroll-behavior: smooth;
 }
 
-@layer components {
+/* Custom component classes */
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
   .container {
-    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
-  
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
   .section-padding {
-    @apply py-16 md:py-24;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
-  
+}
+
+.heading-xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
   .heading-xl {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+    font-size: 3rem;
+    line-height: 1;
   }
-  
+}
+
+@media (min-width: 1024px) {
+  .heading-xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+}
+
+.heading-lg {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
   .heading-lg {
-    @apply text-3xl md:text-4xl font-bold;
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
-  
+}
+
+.heading-md {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
   .heading-md {
-    @apply text-2xl md:text-3xl font-bold;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
-  
-  .btn-primary {
-    @apply px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors;
-  }
-  
-  .btn-secondary {
-    @apply px-6 py-3 bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-lg transition-colors;
-  }
+}
+
+.btn-primary {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 0.5rem;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  background-color: #e5e7eb;
+  color: #111827;
+  border-radius: 0.5rem;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.dark .btn-secondary {
+  background-color: #1f2937;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #d1d5db;
+}
+
+.dark .btn-secondary:hover {
+  background-color: #374151;
 }

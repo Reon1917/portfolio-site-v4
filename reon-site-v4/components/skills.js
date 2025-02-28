@@ -7,8 +7,8 @@ import {
   FaNodeJs, 
   FaJava, 
   FaPython, 
-  FaAws, 
-  FaDatabase 
+  FaAws,
+  FaDocker
 } from "react-icons/fa";
 import { 
   SiNextdotjs, 
@@ -23,59 +23,43 @@ const skillsData = [
   {
     category: "Frontend",
     skills: [
-      { name: "NextJS", icon: SiNextdotjs, level: 90 },
-      { name: "ReactJS", icon: FaReact, level: 95 },
-      { name: "JavaScript", icon: FaJs, level: 90 },
-      { name: "TypeScript", icon: SiTypescript, level: 85 },
+      { name: "NextJS", icon: SiNextdotjs },
+      { name: "ReactJS", icon: FaReact },
+      { name: "JavaScript", icon: FaJs },
+      { name: "TypeScript", icon: SiTypescript },
     ],
   },
   {
     category: "Backend",
     skills: [
-      { name: "Node.js", icon: FaNodeJs, level: 85 },
-      { name: "Java", icon: FaJava, level: 80 },
-      { name: "Python", icon: FaPython, level: 75 },
+      { name: "Node.js", icon: FaNodeJs },
+      { name: "Java", icon: FaJava },
+      { name: "Python", icon: FaPython },
     ],
   },
   {
     category: "Database",
     skills: [
-      { name: "MongoDB", icon: SiMongodb, level: 85 },
-      { name: "Supabase", icon: SiSupabase, level: 80 },
-      { name: "MySQL", icon: SiMysql, level: 85 },
-      { name: "PostgreSQL", icon: SiPostgresql, level: 80 },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "Supabase", icon: SiSupabase },
+      { name: "MySQL", icon: SiMysql },
+      { name: "PostgreSQL", icon: SiPostgresql },
     ],
   },
   {
-    category: "Cloud",
+    category: "DevOps & Cloud",
     skills: [
-      { name: "AWS", icon: FaAws, level: 75 },
+      { name: "AWS", icon: FaAws },
+      { name: "Docker", icon: FaDocker },
     ],
   },
 ];
 
-const SkillCard = ({ name, icon: Icon, level }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  
+const SkillItem = ({ name, icon: Icon }) => {
   return (
-    <div 
-      className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="flex flex-col items-center">
-        <Icon className="text-5xl text-blue-600 dark:text-blue-400 mb-4" />
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{name}</h3>
-        <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mb-1">
-          <div 
-            className="bg-blue-600 dark:bg-blue-500 h-2.5 rounded-full transition-all duration-500 ease-out"
-            style={{ width: isHovered ? `${level}%` : "0%" }}
-          ></div>
-        </div>
-        <span className="text-xs text-gray-500 dark:text-gray-400">
-          {isHovered ? `${level}%` : "Hover to see proficiency"}
-        </span>
-      </div>
+    <div className="inline-flex items-center bg-gray-100 dark:bg-gray-800 rounded-full px-3 py-1.5 m-1.5 text-sm">
+      <Icon className="text-blue-600 dark:text-blue-400 mr-2" />
+      <span className="text-gray-900 dark:text-white">{name}</span>
     </div>
   );
 };
@@ -107,21 +91,20 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="section-padding bg-gray-50 dark:bg-gray-900">
-      <div className="container">
-        <div className={`text-center mb-12 transition-all duration-700 ${
+    <section id="skills" className="py-12 md:py-16 bg-gray-50 dark:bg-gray-900">
+      <div className="container max-w-5xl mx-auto px-4">
+        <div className={`text-center mb-8 transition-all duration-700 ${
           isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
         }`}>
-          <h2 className="heading-lg text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
             Technical Skills
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            I've developed expertise in various technologies throughout my academic and professional journey.
-            Here's a showcase of my technical proficiency.
+            Technologies I work with
           </p>
         </div>
 
-        <div className="space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {skillsData.map((category, index) => (
             <div 
               key={category.category}
@@ -129,16 +112,15 @@ const Skills = () => {
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
               }`}
             >
-              <h3 className="heading-md text-gray-800 dark:text-gray-200 mb-6">
+              <h3 className="text-xl font-medium text-gray-800 dark:text-gray-200 mb-3 border-b border-gray-200 dark:border-gray-700 pb-2">
                 {category.category}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="flex flex-wrap -m-1.5">
                 {category.skills.map((skill) => (
-                  <SkillCard
+                  <SkillItem
                     key={skill.name}
                     name={skill.name}
                     icon={skill.icon}
-                    level={skill.level}
                   />
                 ))}
               </div>
