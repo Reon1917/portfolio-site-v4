@@ -1,0 +1,12 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+When you use shadcn always use these type of commands 
+
+npx shadcn@latest init
+npx shadcn@latest add button

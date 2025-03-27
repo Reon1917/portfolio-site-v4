@@ -1,0 +1,18 @@
+{
+    "name": "Lin Myat Phyo",
+    "origin": "Myanmar",
+    "location": "Thailand",
+    "education": {
+      "university": "Assumption University of Thailand",
+      "degree": "Bachelor of Science in IT",
+      "concentration": "Software Development"
+    },
+    "role": "Full Stack Web Developer",
+    "skills": {
+      "frontend": ["NextJS", "React", "TailwindCSS", "TypeScript"],
+      "backend": ["MongoDB", "Supabase", "Neon", "AWS"],
+      "programming_languages": ["Python", "Java"],
+      "tools": ["Docker", "SQL", "PostgreSQL"]
+    }
+  }
+  
