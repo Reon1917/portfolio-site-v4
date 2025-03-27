@@ -48,10 +48,6 @@ export function Footer({ data }) {
               <Instagram size={22} />
             </a>
           </div>
-          
-          <div className="mt-6 md:mt-0 text-sm text-muted-foreground">
-            <p>© {new Date().getFullYear()} {data.name}. All rights reserved.</p>
-          </div>
         </motion.div>
       </div>
     </footer>
