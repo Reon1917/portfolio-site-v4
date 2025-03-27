@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react";
+import { GithubIcon, LinkedinIcon, Instagram } from "lucide-react";
 
 export function Footer({ data }) {
   return (
@@ -27,7 +27,7 @@ export function Footer({ data }) {
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="GitHub"
             >
-              <GithubIcon size={20} />
+              <GithubIcon size={22} />
             </a>
             <a 
               href="https://linkedin.com" 
@@ -36,19 +36,21 @@ export function Footer({ data }) {
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="LinkedIn"
             >
-              <LinkedinIcon size={20} />
+              <LinkedinIcon size={22} />
             </a>
             <a 
-              href={`mailto:linmaytphyo03@gmail.com`}
+              href="https://instagram.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Email"
+              aria-label="Instagram"
             >
-              <MailIcon size={20} />
+              <Instagram size={22} />
             </a>
           </div>
           
           <div className="mt-6 md:mt-0 text-sm text-muted-foreground">
-            <p>Built with Next.js and TailwindCSS</p>
+            <p>© {new Date().getFullYear()} {data.name}. All rights reserved.</p>
           </div>
         </motion.div>
       </div>
