@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Laptop, Monitor, Github } from "lucide-react";
+import { Monitor, Github, Code } from "lucide-react";
 
 export function Skills({ data }) {
   // Define skill categories
@@ -15,9 +15,9 @@ export function Skills({ data }) {
 
   // Dev environment icons mapping
   const devIcons = {
-    "Windows": <Monitor className="h-5 w-5 mr-1" />,
-    "Cursor": <Laptop className="h-5 w-5 mr-1" />,
-    "GitHub": <Github className="h-5 w-5 mr-1" />
+    "Windows": <Monitor className="h-5 w-5" />,
+    "Cursor IDE": <Code className="h-5 w-5" />,
+    "GitHub": <Github className="h-5 w-5" />
   };
 
   return (
@@ -80,9 +80,11 @@ export function Skills({ data }) {
               <CardContent>
                 <div className="space-y-4">
                   {Object.entries(data.dev_environment).map(([key, value]) => (
-                    <div key={key} className="flex items-center">
-                      {devIcons[value]}
-                      <span className="ml-2">{value}</span>
+                    <div key={key} className="flex items-center space-x-3 p-2 rounded-md hover:bg-secondary/50 transition-colors">
+                      <div className="flex-shrink-0">
+                        {devIcons[value]}
+                      </div>
+                      <span>{value}</span>
                     </div>
                   ))}
                 </div>
