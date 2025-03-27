@@ -21,7 +21,7 @@ export function Footer({ data }) {
           
           <div className="flex gap-6">
             <a 
-              href="https://github.com" 
+              href="https://github.com/Reon1917" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -30,7 +30,7 @@ export function Footer({ data }) {
               <GithubIcon size={22} />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/lin-myat-phyo-b872b1217/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -39,7 +39,7 @@ export function Footer({ data }) {
               <LinkedinIcon size={22} />
             </a>
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/re0n1917/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"

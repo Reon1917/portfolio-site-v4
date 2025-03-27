@@ -16,13 +16,13 @@
     "role": "Full Stack Web Developer",
     "skills": {
       "frontend": ["NextJS", "React", "TailwindCSS", "TypeScript"],
-      "backend": ["MongoDB", "Supabase", "Neon", "AWS"],
-      "programming_languages": ["Python", "Java", "Git"],
-      "tools": ["Docker", "SQL", "PostgreSQL"]
+      "backend": ["MongoDB", "Supabase", "Neon", "AWS","SQL", "PostgreSQL"],
+      "programming_languages": ["Python", "Java","JavaScript"],
+      "tools": ["Docker", "Git"]
     },
     "dev_environment": {
       "os": "Windows",
-      "ide": "Cursor",
+      "ide": "Cursor IDE",
       "version_control": "GitHub"
     }
   }
