@@ -2,7 +2,21 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { motion } from "framer-motion";
-import { Monitor, Github, Code } from "lucide-react";
+import { 
+  SiReact, SiNextdotjs, SiTailwindcss, SiTypescript, 
+  SiMongodb, SiSupabase, SiAmazonaws, 
+  SiPostgresql, SiPython, SiJava, SiGit
+} from "react-icons/si";
+import { 
+  FaDocker, FaJsSquare, FaDatabase
+} from "react-icons/fa";
+import { 
+  TbBrandVscode, TbBrandWindows 
+} from "react-icons/tb";
+import { 
+  BsGithub, BsFiletypeSql 
+} from "react-icons/bs";
+import { FaAws, FaJava } from "react-icons/fa";
 
 export function Skills({ data }) {
   // Define skill categories
@@ -13,11 +27,37 @@ export function Skills({ data }) {
     { title: "Tools", skills: data.skills.tools, delay: 0.4 },
   ];
 
-  // Dev environment icons mapping
-  const devIcons = {
-    "Windows": <Monitor className="h-5 w-5" />,
-    "Cursor IDE": <Code className="h-5 w-5" />,
-    "GitHub": <Github className="h-5 w-5" />
+  // Icon mapping for all skills
+  const skillIcons = {
+    // Frontend
+    "NextJS": <SiNextdotjs className="h-4 w-4" />,
+    "React": <SiReact className="h-4 w-4" />,
+    "TailwindCSS": <SiTailwindcss className="h-4 w-4" />,
+    "TypeScript": <SiTypescript className="h-4 w-4" />,
+    
+    // Backend
+    "MongoDB": <SiMongodb className="h-4 w-4" />,
+    "Supabase": <SiSupabase className="h-4 w-4" />,
+    "Neon": <FaDatabase className="h-4 w-4" />,
+    "AWS": <FaAws className="h-4 w-4" />,
+    "SQL": <BsFiletypeSql className="h-4 w-4" />,
+    "PostgreSQL": <SiPostgresql className="h-4 w-4" />,
+    
+    // Programming Languages
+    "Python": <SiPython className="h-4 w-4" />,
+    "Java": <FaJava className="h-4 w-4" />, 
+    "JavaScript": <FaJsSquare className="h-4 w-4" />,
+    
+    // Tools
+    "Docker": <FaDocker className="h-4 w-4" />,
+    "Git": <SiGit className="h-4 w-4" />,
+  };
+
+  // Dev environment icons
+  const envIcons = {
+    "Windows": <TbBrandWindows className="h-5 w-5" />,
+    "Cursor IDE": <TbBrandVscode className="h-5 w-5" />,
+    "GitHub": <BsGithub className="h-5 w-5" />
   };
 
   return (
@@ -58,9 +98,12 @@ export function Skills({ data }) {
                         {category.skills.map((skill) => (
                           <div
                             key={skill}
-                            className="skill-tag apple-hover"
+                            className="skill-tag apple-hover flex items-center gap-1.5"
                           >
-                            {skill}
+                            <span className="text-primary">
+                              {skillIcons[skill] || <FaDatabase className="h-4 w-4" />}
+                            </span>
+                            <span>{skill}</span>
                           </div>
                         ))}
                       </div>
@@ -90,7 +133,7 @@ export function Skills({ data }) {
                   {Object.entries(data.dev_environment).map(([key, value]) => (
                     <div key={key} className="flex items-center space-x-3 p-2 rounded-md hover:bg-primary/5 transition-colors apple-hover">
                       <div className="flex-shrink-0 p-2 bg-primary/10 rounded-md text-primary">
-                        {devIcons[value]}
+                        {envIcons[value] || <TbBrandVscode className="h-5 w-5" />}
                       </div>
                       <span className="font-medium">{value}</span>
                     </div>
@@ -133,4 +176,4 @@ export function Skills({ data }) {
       </div>
     </section>
   );
-} 
+}
