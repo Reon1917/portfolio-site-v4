@@ -4,8 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { motion } from "framer-motion";
 import { 
   SiReact, SiNextdotjs, SiTailwindcss, SiTypescript, 
-  SiMongodb, SiSupabase, SiAmazonaws, 
-  SiPostgresql, SiPython, SiJava, SiGit
+  SiMongodb, SiSupabase, SiPostgresql, SiPython, SiGit
 } from "react-icons/si";
 import { 
   FaDocker, FaJsSquare, FaDatabase
