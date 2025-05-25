@@ -36,10 +36,13 @@ export function Navbar({ data }) {
         
         <div className="flex items-center gap-6">
           <div className="hidden md:flex gap-4">
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="hover-lift motion-safe" asChild>
               <a href="#skills">Skills</a>
             </Button>
-            <Button variant="ghost" asChild>
+            <Button variant="ghost" className="hover-lift motion-safe" asChild>
+              <a href="#projects">Projects</a>
+            </Button>
+            <Button variant="ghost" className="hover-lift motion-safe" asChild>
               <a href="#contact">Contact</a>
             </Button>
           </div>

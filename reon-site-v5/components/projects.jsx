@@ -33,7 +33,7 @@ const projectsData = [
 
 export function Projects() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="projects" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-border/30">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export function Projects() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {projectsData.map((project, index) => (
             <motion.div
               key={project.id}
@@ -71,12 +71,12 @@ export function Projects() {
 function ProjectCard({ project }) {
   return (
     <Card className="overflow-hidden p-0">
-      <div className="relative h-[280px] overflow-hidden">
+              <div className="relative h-[240px] sm:h-[280px] overflow-hidden">
         <Image
           src={project.image}
           alt={`${project.name} Preview`}
           fill
-          className="object-cover object-top transition-transform duration-300 hover:scale-105"
+          className="object-cover object-top motion-safe hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -87,7 +87,7 @@ function ProjectCard({ project }) {
         </div>
       </div>
 
-      <div className="p-6 space-y-4">
+      <div className="p-4 sm:p-6 space-y-4">
         <div>
           <CardTitle className="text-xl font-bold mb-2">
             {project.name}
@@ -108,11 +108,11 @@ function ProjectCard({ project }) {
           ))}
         </div>
 
-        <div className="flex gap-3 pt-2">
+        <div className="flex flex-col sm:flex-row gap-3 pt-2">
           <Button
             variant="outline"
             size="sm"
-            className="flex-1"
+            className="flex-1 hover-lift motion-safe"
             onClick={() => window.open(project.githubUrl, '_blank')}
           >
             <FiGithub className="w-4 h-4 mr-2" />
@@ -120,7 +120,7 @@ function ProjectCard({ project }) {
           </Button>
           <Button
             size="sm"
-            className="flex-1"
+            className="flex-1 hover-lift hover-glow motion-safe"
             onClick={() => project.demoUrl && window.open(project.demoUrl, '_blank')}
           >
             <FiExternalLink className="w-4 h-4 mr-2" />
@@ -132,12 +132,12 @@ function ProjectCard({ project }) {
   );
 }
 
-// Premium card component with borderless feel
+// Premium card component with minimal border
 export const Card = ({ className, children }) => {
   return (
     <div
       className={cn(
-        "w-full mx-auto rounded-2xl bg-card shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1",
+        "w-full mx-auto rounded-2xl bg-card border border-border/50 shadow-sm hover:shadow-lg hover-lift motion-complex",
         className
       )}
     >

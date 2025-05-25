@@ -60,10 +60,10 @@ export function Skills({ data }) {
   };
 
   return (
-    <section id="skills" className="py-20 px-4">
+    <section id="skills" className="py-16 sm:py-20 px-4 border-t border-border/30">
       <div className="container mx-auto max-w-6xl">
         <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-center mb-12 apple-accent pb-3"
+          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 apple-accent pb-3"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -72,16 +72,16 @@ export function Skills({ data }) {
           Skills & Experience
         </motion.h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Technical Skills Card */}
           <motion.div
             className="md:col-span-2"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             viewport={{ once: true }}
           >
-            <Card className="h-full apple-card apple-accent-shadow">
+            <Card className="h-full hover-lift motion-complex border border-border/50">
               <CardHeader className="border-b border-border/10">
                 <CardTitle className="text-foreground">Technical Skills</CardTitle>
                 <CardDescription>
@@ -94,16 +94,25 @@ export function Skills({ data }) {
                     <div key={category.title} className="space-y-3">
                       <h3 className="font-medium text-foreground/90">{category.title}</h3>
                       <div className="flex flex-wrap gap-2">
-                        {category.skills.map((skill) => (
-                          <div
+                        {category.skills.map((skill, index) => (
+                          <motion.div
                             key={skill}
-                            className="skill-tag apple-hover flex items-center gap-1.5"
+                            className="skill-tag hover-lift motion-safe flex items-center gap-1.5"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ 
+                              duration: 0.3, 
+                              delay: category.delay + (index * 0.1),
+                              ease: [0.4, 0, 0.2, 1]
+                            }}
+                            viewport={{ once: true }}
+                            whileHover={{ scale: 1.05 }}
                           >
                             <span className="text-primary">
                               {skillIcons[skill] || <FaDatabase className="h-4 w-4" />}
                             </span>
                             <span>{skill}</span>
-                          </div>
+                          </motion.div>
                         ))}
                       </div>
                     </div>
@@ -120,7 +129,7 @@ export function Skills({ data }) {
             transition={{ delay: 0.3, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Card className="h-full apple-card apple-accent-shadow">
+            <Card className="h-full hover-lift motion-safe border border-border/50">
               <CardHeader className="border-b border-border/10">
                 <CardTitle className="text-foreground">Development Environment</CardTitle>
                 <CardDescription>
@@ -150,7 +159,7 @@ export function Skills({ data }) {
             transition={{ delay: 0.4, duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <Card className="apple-card apple-accent-shadow">
+            <Card className="hover-lift motion-safe border border-border/50">
               <CardHeader className="border-b border-border/10">
                 <CardTitle className="text-foreground">University Courses</CardTitle>
                 <CardDescription>
