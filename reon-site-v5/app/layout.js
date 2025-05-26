@@ -20,13 +20,34 @@ export const metadata = {
       {
         url: "/logo/logo.png",
         type: "image/png",
+        sizes: "32x32",
+      },
+      {
+        url: "/logo/logo.png",
+        type: "image/png", 
+        sizes: "16x16",
       },
     ],
-    shortcut: ["/logo/logo.png"],
+    shortcut: "/logo/logo.png",
     apple: [
       {
         url: "/logo/logo.png",
         type: "image/png",
+        sizes: "180x180",
+      },
+    ],
+    other: [
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "192x192",
+        url: "/logo/logo.png",
+      },
+      {
+        rel: "icon", 
+        type: "image/png",
+        sizes: "512x512",
+        url: "/logo/logo.png",
       },
     ],
   },
@@ -35,10 +56,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="icon" type="image/png" href="/logo/logo.png" />
-        <link rel="apple-touch-icon" type="image/png" href="/logo/logo.png" />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
