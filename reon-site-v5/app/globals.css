@@ -46,6 +46,7 @@
 :root {
   --radius: 0.625rem;
   --background: #ffffff;
+  --background-rgb: 255, 255, 255;
   --foreground: #1f2937;
   --card: #ffffff;
   --card-foreground: #1f2937;
@@ -88,6 +89,7 @@
 
 .dark {
   --background: #0f172a;
+  --background-rgb: 15, 23, 42;
   --foreground: #f1f5f9;
   --card: #1e293b;
   --card-foreground: #f1f5f9;
@@ -303,6 +305,47 @@
 
 .hover-glow:hover {
   box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+}
+
+/* Navbar Aurora Effects */
+.navbar-aurora-bg {
+  background: linear-gradient(
+    90deg, 
+    var(--aurora-blue-500), 
+    var(--aurora-indigo-300), 
+    var(--aurora-violet-200)
+  );
+  filter: blur(40px);
+  opacity: 0.3;
+}
+
+.navbar-gradient-line {
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    var(--aurora-blue-400), 
+    var(--aurora-indigo-300), 
+    var(--aurora-violet-200), 
+    transparent
+  );
+}
+
+.aurora-nav-hover {
+  background: linear-gradient(
+    45deg, 
+    var(--aurora-blue-400), 
+    var(--aurora-indigo-300), 
+    var(--aurora-violet-200)
+  );
+}
+
+/* Enhanced mobile navigation */
+@media (max-width: 768px) {
+  .mobile-nav-menu {
+    backdrop-filter: blur(20px);
+    background: rgba(var(--background-rgb), 0.95);
+    border: 1px solid rgba(var(--aurora-blue-400), 0.2);
+  }
 }
 
 /* Reduced motion support */

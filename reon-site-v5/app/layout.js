@@ -15,11 +15,30 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Lin Myat Phyo | Full Stack Web Developer",
   description: "Portfolio of Lin Myat Phyo, a Full Stack Web Developer specializing in NextJS, React, and MongoDB",
+  icons: {
+    icon: [
+      {
+        url: "/logo/logo.png",
+        type: "image/png",
+      },
+    ],
+    shortcut: ["/logo/logo.png"],
+    apple: [
+      {
+        url: "/logo/logo.png",
+        type: "image/png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" type="image/png" href="/logo/logo.png" />
+        <link rel="apple-touch-icon" type="image/png" href="/logo/logo.png" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
