@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { Code, Database, Cloud, Wrench, GraduationCap } from "lucide-react";
+import { Code, Database, Cloud, Wrench, GraduationCap, Award } from "lucide-react";
+import personalInfo from "@/app/personal-info/myinfo.json";
 
 export default function Skills() {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,31 +10,29 @@ export default function Skills() {
 
   const skillCategories = [
     {
-      title: "Frontend",
+      title: "Frontend Development",
       icon: <Code className="h-5 w-5" />,
-      skills: ["JavaScript", "TypeScript", "React", "Next.js", "HTML/CSS", "Tailwind CSS"],
+      skills: personalInfo.skills.frontend,
       color: "#4f46e5"
     },
     {
-      title: "Backend",
+      title: "Backend & Database",
       icon: <Database className="h-5 w-5" />,
-      skills: ["Python", "Java", "Node.js", "PostgreSQL", "MongoDB", "Supabase"],
+      skills: [...personalInfo.skills.backend, ...personalInfo.skills.databases],
       color: "#10b981"
     },
     {
-      title: "Cloud & Tools",
+      title: "Tools & Platforms",
       icon: <Cloud className="h-5 w-5" />,
-      skills: ["AWS", "Vercel", "Docker", "Git/GitHub", "VS Code", "Postman"],
+      skills: [...personalInfo.skills.cloudPlatforms, ...personalInfo.skills.tools],
       color: "#f59e0b"
+    },
+    {
+      title: "Core Languages",
+      icon: <Wrench className="h-5 w-5" />,
+      skills: personalInfo.skills.programmingLanguages,
+      color: "#ec4899"
     }
-  ];
-
-  const relevantCourses = [
-    "Object-oriented Programming",
-    "Web Application Development",
-    "Backend Application Development", 
-    "Data Structures and Algorithms",
-    "Digital Marketing"
   ];
 
   useEffect(() => {
@@ -59,21 +58,21 @@ export default function Skills() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-heading mb-4 text-[var(--text-primary)]">
-            Technical Skills
+            Technical Expertise
           </h2>
           <p className="text-body text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Technologies and tools I use to build modern, scalable web applications.
+            Comprehensive skill set in modern web development technologies, from frontend frameworks to cloud deployment.
           </p>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {skillCategories.map((category, index) => (
             <div
               key={category.title}
               className="paper-card p-6"
               style={{
-                animation: isVisible ? `fadeIn 0.6s ease-out ${index * 0.2}s forwards` : "none",
+                animation: isVisible ? `fadeIn 0.6s ease-out ${index * 0.1}s forwards` : "none",
                 opacity: isVisible ? 1 : 0
               }}
             >
@@ -89,47 +88,95 @@ export default function Skills() {
                 </h3>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="space-y-2">
                 {category.skills.map((skill) => (
-                  <span
+                  <div
                     key={skill}
-                    className="px-3 py-2 bg-[var(--paper-border)] text-[var(--text-primary)] rounded-lg text-sm font-medium hover:bg-[var(--accent)]20 hover:text-[var(--accent)] transition-colors"
+                    className="flex items-center space-x-2 p-2 rounded-lg hover:bg-[var(--paper-border)] transition-colors"
                   >
-                    {skill}
-                  </span>
+                    <div className="w-2 h-2 bg-[var(--accent)] rounded-full flex-shrink-0" />
+                    <span className="text-sm text-[var(--text-primary)]">{skill}</span>
+                  </div>
                 ))}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Relevant Courses */}
-        <div 
-          className="paper-card p-8"
-          style={{
-            animation: isVisible ? "fadeIn 0.6s ease-out 0.6s forwards" : "none",
-            opacity: isVisible ? 1 : 0
-          }}
-        >
-          <div className="flex items-center space-x-3 mb-6">
-            <div className="p-2 rounded-lg bg-[var(--accent)]20">
-              <GraduationCap className="h-5 w-5 text-[var(--accent)]" />
+        {/* Achievements & Methodologies */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Achievements */}
+          <div 
+            className="paper-card p-8"
+            style={{
+              animation: isVisible ? "fadeIn 0.6s ease-out 0.4s forwards" : "none",
+              opacity: isVisible ? 1 : 0
+            }}
+          >
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="p-2 rounded-lg bg-[var(--accent)]20">
+                <Award className="h-5 w-5 text-[var(--accent)]" />
+              </div>
+              <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+                Key Achievements
+              </h3>
             </div>
-            <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-              Relevant Coursework
-            </h3>
+
+            <div className="space-y-4">
+              {personalInfo.achievements.map((achievement, index) => (
+                <div key={index} className="border-l-2 border-[var(--accent)] pl-4">
+                  <div className="flex items-center justify-between mb-1">
+                    <h4 className="font-medium text-[var(--text-primary)]">{achievement.title}</h4>
+                    <span className="text-xs text-[var(--text-secondary)]">{achievement.year}</span>
+                  </div>
+                  <p className="text-sm text-[var(--text-secondary)]">{achievement.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {relevantCourses.map((course) => (
-              <div
-                key={course}
-                className="flex items-center space-x-2 p-3 rounded-lg border border-[var(--paper-border)] hover:border-[var(--accent)] hover:bg-[var(--accent)]10 transition-colors"
-              >
-                <div className="w-2 h-2 bg-[var(--accent)] rounded-full flex-shrink-0" />
-                <span className="text-sm text-[var(--text-primary)]">{course}</span>
+          {/* Relevant Coursework */}
+          <div 
+            className="paper-card p-8"
+            style={{
+              animation: isVisible ? "fadeIn 0.6s ease-out 0.5s forwards" : "none",
+              opacity: isVisible ? 1 : 0
+            }}
+          >
+            <div className="flex items-center space-x-3 mb-6">
+              <div className="p-2 rounded-lg bg-[var(--accent)]20">
+                <GraduationCap className="h-5 w-5 text-[var(--accent)]" />
               </div>
-            ))}
+              <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+                Academic Foundation
+              </h3>
+            </div>
+
+            <div className="space-y-3">
+              {personalInfo.relevantCourses.map((course, index) => (
+                <div
+                  key={course}
+                  className="flex items-center space-x-2 p-3 rounded-lg border border-[var(--paper-border)] hover:border-[var(--accent)] hover:bg-[var(--accent)]10 transition-colors"
+                >
+                  <div className="w-2 h-2 bg-[var(--accent)] rounded-full flex-shrink-0" />
+                  <span className="text-sm text-[var(--text-primary)]">{course}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-[var(--paper-border)]">
+              <h4 className="font-medium text-[var(--text-primary)] mb-3">Development Methodologies</h4>
+              <div className="flex flex-wrap gap-2">
+                {personalInfo.skills.methodologies.map((method) => (
+                  <span
+                    key={method}
+                    className="px-3 py-1 bg-[var(--paper-border)] text-[var(--text-primary)] rounded-full text-xs font-medium"
+                  >
+                    {method}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

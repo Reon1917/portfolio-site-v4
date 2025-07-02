@@ -1,75 +1,21 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { ExternalLink, Github, Folder, Calendar, Tag } from "lucide-react";
+import { ExternalLink, Github, Folder, Calendar, Tag, CheckCircle } from "lucide-react";
+import personalInfo from "@/app/personal-info/myinfo.json";
 
 export default function Projects() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const sectionRef = useRef(null);
 
-  const projects = [
-    {
-      id: 1,
-      name: "Collavo",
-      description: "Student-focused task management and collaboration web application",
-      type: "Senior Project 1",
-      category: "Web App",
-      technologies: ["React", "Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
-      features: [
-        "Real-time collaboration",
-        "Task management system", 
-        "Student-focused design",
-        "Responsive interface"
-      ],
-      status: "In Development",
-      image: "/api/placeholder/400/300",
-      demoLink: "#",
-      githubLink: "#"
-    },
-    {
-      id: 2,
-      name: "Portfolio Website",
-      description: "Modern, responsive portfolio built with Next.js and Tailwind CSS",
-      type: "Personal Project",
-      category: "Web App",
-      technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript"],
-      features: [
-        "Dark/Light mode",
-        "Responsive design",
-        "Performance optimized",
-        "SEO friendly"
-      ],
-      status: "Completed",
-      image: "/api/placeholder/400/300",
-      demoLink: "#",
-      githubLink: "#"
-    },
-    {
-      id: 3,
-      name: "E-Commerce API",
-      description: "RESTful API for e-commerce platform with authentication and payment integration",
-      type: "Backend Project",
-      category: "API",
-      technologies: ["Node.js", "Express", "PostgreSQL", "JWT", "Stripe"],
-      features: [
-        "User authentication",
-        "Payment processing",
-        "Order management",
-        "Admin dashboard"
-      ],
-      status: "Planning",
-      image: "/api/placeholder/400/300",
-      demoLink: "#",
-      githubLink: "#"
-    }
-  ];
+  const projects = personalInfo.projects;
 
-  const categories = ["All", "Web App", "API", "Mobile"];
+  const categories = ["All", ...new Set(projects.map(project => project.type))];
 
   const filteredProjects = selectedCategory === "All" 
     ? projects 
-    : projects.filter(project => project.category === selectedCategory);
+    : projects.filter(project => project.type === selectedCategory);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,6 +36,7 @@ export default function Projects() {
 
   const getStatusColor = (status) => {
     switch (status) {
+      case "Live":
       case "Completed":
         return { bg: "#10b98120", text: "#10b981", border: "#10b981" };
       case "In Development":
@@ -114,19 +61,17 @@ export default function Projects() {
           transform: isVisible ? "translateY(0)" : "translateY(30px)"
         }}
       >
-        {/* Project Image Placeholder */}
-        <div className="w-full h-48 bg-gradient-to-br from-[var(--accent)]20 to-[var(--accent)]10 rounded-lg mb-6 flex items-center justify-center">
-          <Folder className="h-12 w-12 text-[var(--accent)]" />
-        </div>
-
         {/* Project Header */}
-        <div className="mb-4">
-          <div className="flex items-start justify-between mb-2">
-            <h3 className="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
-              {project.name}
-            </h3>
+        <div className="mb-6">
+          <div className="flex items-start justify-between mb-3">
+            <div className="flex items-center space-x-2">
+              <Folder className="h-5 w-5 text-[var(--accent)]" />
+              <h3 className="text-xl font-semibold text-[var(--text-primary)] group-hover:text-[var(--accent)] transition-colors">
+                {project.name}
+              </h3>
+            </div>
             <span
-              className="px-2 py-1 rounded-full text-xs font-medium border"
+              className="px-3 py-1 rounded-full text-xs font-medium border"
               style={{
                 backgroundColor: statusColors.bg,
                 color: statusColors.text,
@@ -137,9 +82,9 @@ export default function Projects() {
             </span>
           </div>
           
-          <div className="flex items-center space-x-2 mb-3">
+          <div className="flex items-center space-x-2 mb-4">
             <Tag className="h-3 w-3 text-[var(--text-secondary)]" />
-            <span className="text-sm text-[var(--text-secondary)]">{project.type}</span>
+            <span className="text-sm text-[var(--text-secondary)] font-medium">{project.type}</span>
           </div>
           
           <p className="text-body text-[var(--text-secondary)] leading-relaxed">
@@ -147,14 +92,30 @@ export default function Projects() {
           </p>
         </div>
 
+        {/* Key Highlights */}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-3 flex items-center">
+            <CheckCircle className="h-4 w-4 mr-2 text-[var(--accent)]" />
+            Key Accomplishments
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            {project.highlights.map((highlight, highlightIndex) => (
+              <div key={highlightIndex} className="flex items-center text-sm text-[var(--text-secondary)]">
+                <span className="w-1.5 h-1.5 bg-[var(--accent)] rounded-full mr-2 flex-shrink-0" />
+                {highlight}
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Technologies */}
-        <div className="mb-4">
-          <h4 className="text-sm font-medium text-[var(--text-primary)] mb-2">Technologies</h4>
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-[var(--text-primary)] mb-3">Tech Stack</h4>
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-2 py-1 bg-[var(--paper-border)] text-[var(--text-secondary)] rounded text-xs font-medium"
+                className="px-3 py-1 bg-[var(--accent)]10 text-[var(--accent)] border border-[var(--accent)]20 rounded-full text-xs font-medium hover:bg-[var(--accent)]20 transition-colors"
               >
                 {tech}
               </span>
@@ -162,24 +123,13 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Features */}
-        <div className="mb-6">
-          <h4 className="text-sm font-medium text-[var(--text-primary)] mb-2">Key Features</h4>
-          <ul className="space-y-1">
-            {project.features.map((feature, featureIndex) => (
-              <li key={featureIndex} className="text-sm text-[var(--text-secondary)] flex items-center">
-                <span className="w-1 h-1 bg-[var(--accent)] rounded-full mr-2" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Action Buttons */}
         <div className="flex space-x-3">
           <button className="flex-1 flex items-center justify-center space-x-2 px-4 py-2 bg-[var(--accent)] text-white rounded-lg hover:bg-[var(--accent-light)] focus-ring transition-colors">
             <ExternalLink className="h-4 w-4" />
-            <span className="text-sm font-medium">Live Demo</span>
+            <span className="text-sm font-medium">
+              {project.status === "Live" ? "View Live" : "View Details"}
+            </span>
           </button>
           <button className="flex items-center justify-center px-4 py-2 border border-[var(--paper-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--accent)] rounded-lg focus-ring transition-colors">
             <Github className="h-4 w-4" />
@@ -198,10 +148,9 @@ export default function Projects() {
             Featured Projects
           </h2>
           <p className="text-body text-[var(--text-secondary)] max-w-2xl mx-auto mb-8">
-            A showcase of my recent work and personal projects that demonstrate 
-            my skills in web development, problem-solving, and creative design.
+            A showcase of my development work, demonstrating technical skills, problem-solving abilities, and commitment to quality code.
           </p>
-          
+
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-2">
             {categories.map((category) => (
@@ -211,7 +160,7 @@ export default function Projects() {
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors focus-ring ${
                   selectedCategory === category
                     ? "bg-[var(--accent)] text-white"
-                    : "bg-[var(--paper-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                    : "bg-[var(--paper-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--accent)]20"
                 }`}
               >
                 {category}
@@ -223,22 +172,23 @@ export default function Projects() {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard key={project.name} project={project} index={index} />
           ))}
         </div>
 
-        {/* More Projects CTA */}
-        <div className="text-center mt-16">
-          <div className="paper-card p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl font-semibold mb-4 text-[var(--text-primary)]">
-              Want to see more?
+        {/* Additional Project Note */}
+        <div className="mt-16 text-center">
+          <div className="paper-card p-6 max-w-2xl mx-auto">
+            <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
+              More Projects Coming Soon
             </h3>
-            <p className="text-body text-[var(--text-secondary)] mb-6">
-              Check out my GitHub for more projects and contributions to open source.
+            <p className="text-body text-[var(--text-secondary)] mb-4">
+              I'm continuously working on new projects to expand my portfolio. 
+              Check my GitHub for the latest updates and contributions.
             </p>
-            <button className="inline-flex items-center space-x-2 px-6 py-3 bg-[var(--accent)] text-white rounded-lg hover:bg-[var(--accent-light)] focus-ring transition-colors">
+            <button className="inline-flex items-center space-x-2 text-[var(--accent)] hover:text-[var(--accent-light)] font-medium transition-colors">
               <Github className="h-4 w-4" />
-              <span className="font-medium">View GitHub</span>
+              <span>View GitHub Profile</span>
             </button>
           </div>
         </div>

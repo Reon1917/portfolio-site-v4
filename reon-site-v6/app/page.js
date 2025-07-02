@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Project";
-import AdditionalQs from "@/components/AdditionalQs";
+import ProfessionalQualities from "@/components/AdditionalQs";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -21,8 +21,8 @@ export default function Home() {
       {/* Projects Section */}
       <Projects />
       
-      {/* Additional Questions / About Section */}
-      <AdditionalQs />
+      {/* Professional Qualities Section */}
+      <ProfessionalQualities />
       
       {/* Contact Section */}
       <Contact />

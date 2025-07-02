@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ArrowDown, MapPin, GraduationCap } from "lucide-react";
+import { ArrowDown, MapPin, GraduationCap, Briefcase } from "lucide-react";
+import personalInfo from "@/app/personal-info/myinfo.json";
 
 export default function Hero() {
   const [currentText, setCurrentText] = useState("");
@@ -9,7 +10,7 @@ export default function Hero() {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const texts = [
-    "Web Developer",
+    personalInfo.personalInfo.title,
     "Problem Solver", 
     "Digital Creator",
     "Tech Enthusiast"
@@ -52,7 +53,7 @@ export default function Hero() {
             <h1 className="text-display mb-6 text-[var(--text-primary)]">
               Hi, I'm{" "}
               <span className="text-[var(--accent)] relative">
-                Lin Myat Phyo
+                {personalInfo.personalInfo.name}
               </span>
             </h1>
             
@@ -63,26 +64,36 @@ export default function Hero() {
               </span>
             </div>
 
-            <p className="text-body max-w-2xl mx-auto text-[var(--text-secondary)] mb-8">
-              With a deep love for computers and web design, I'm constantly seeking to learn 
-              new concepts and push the boundaries of what's possible in digital creation. 
-              My goal is to craft user-centric web experiences that are both functional 
-              and aesthetically pleasing.
+            <p className="text-body max-w-2xl mx-auto text-[var(--text-secondary)] mb-6">
+              {personalInfo.about}
             </p>
 
-            {/* Location & Education Cards */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+            <div className="bg-[var(--accent)]10 border border-[var(--accent)]20 rounded-lg p-4 mb-8 max-w-2xl mx-auto">
+              <p className="text-sm font-medium text-[var(--accent)]">
+                Career Objective: {personalInfo.personalInfo.careerObjective}
+              </p>
+            </div>
+
+            {/* Location, Education & Experience Cards */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8 flex-wrap">
               <div className="paper-card px-4 py-3 flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-[var(--accent)]" />
                 <span className="text-sm text-[var(--text-secondary)]">
-                  Bangkok, Thailand
+                  {personalInfo.personalInfo.currentLocation}
                 </span>
               </div>
               
               <div className="paper-card px-4 py-3 flex items-center space-x-2">
                 <GraduationCap className="h-4 w-4 text-[var(--accent)]" />
                 <span className="text-sm text-[var(--text-secondary)]">
-                  Assumption University
+                  Computer Science Student
+                </span>
+              </div>
+
+              <div className="paper-card px-4 py-3 flex items-center space-x-2">
+                <Briefcase className="h-4 w-4 text-[var(--accent)]" />
+                <span className="text-sm text-[var(--text-secondary)]">
+                  {personalInfo.personalInfo.experience}
                 </span>
               </div>
             </div>
@@ -92,7 +103,7 @@ export default function Hero() {
               onClick={scrollToNext}
               className="group inline-flex items-center space-x-2 bg-[var(--accent)] text-white px-6 py-3 rounded-lg hover:bg-[var(--accent-light)] focus-ring transition-all duration-200 transform hover:scale-105"
             >
-              <span className="font-medium">Explore My Work</span>
+              <span className="font-medium">View My Work</span>
               <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform" />
             </button>
           </div>
