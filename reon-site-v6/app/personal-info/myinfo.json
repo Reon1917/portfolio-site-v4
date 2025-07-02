@@ -21,18 +21,24 @@
   "projects": [
     {
       "name": "Collavo",
-      "description": "Student-focused task management and collaboration web application",
-      "type": "Senior Project 1"
+      "description": "A comprehensive student-focused task management and collaboration web application built with modern technologies. Features real-time collaboration, task tracking, and team management for academic projects.",
+      "type": "Senior Project",
+      "technologies": ["React", "Node.js", "MongoDB", "Socket.io"],
+      "status": "In Development"
     },
     {
-      "name": "Project 2",
-      "description": "Placeholder",
-      "type": "Placeholder"
+      "name": "Portfolio Website v4",
+      "description": "A modern, responsive portfolio website built with Next.js 15 and Tailwind CSS. Features dark/light mode, paper texture design system, and optimized performance.",
+      "type": "Personal Project",
+      "technologies": ["Next.js", "Tailwind CSS", "React"],
+      "status": "Completed"
     },
     {
-      "name": "Project 3",
-      "description": "Placeholder",
-      "type": "Placeholder"
+      "name": "E-Commerce Dashboard",
+      "description": "A full-stack admin dashboard for e-commerce management with real-time analytics, inventory tracking, and order management capabilities.",
+      "type": "Learning Project",
+      "technologies": ["React", "Express.js", "PostgreSQL", "Chart.js"],
+      "status": "Completed"
     }
   ],
   "relevantCourses": [
@@ -61,8 +67,8 @@
     }
   ],
   "contacts": {
-    "instagram": "",
-    "linkedin": "",
-    "github": ""
+    "instagram": "https://instagram.com/linmyatphyo",
+    "linkedin": "https://linkedin.com/in/linmyatphyo",
+    "github": "https://github.com/linmyatphyo"
   }
 }
