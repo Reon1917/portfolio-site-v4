@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Target, Lightbulb, Users, Zap } from "lucide-react";
+import { ChevronDown, MessageCircle, Presentation, Users } from "lucide-react";
 import personalInfo from "@/app/personal-info/myinfo.json";
 
-export default function ProfessionalQualities() {
+export default function SoftSkills() {
   const [openItems, setOpenItems] = useState(new Set([1])); // First item open by default
 
   const toggleItem = (id) => {
@@ -19,13 +19,13 @@ export default function ProfessionalQualities() {
     });
   };
 
-  const getQualityIcon = (index) => {
-    const icons = [<Target className="h-4 w-4" />, <Lightbulb className="h-4 w-4" />, <Users className="h-4 w-4" />, <Zap className="h-4 w-4" />];
-    return icons[index] || <Target className="h-4 w-4" />;
+  const getSkillIcon = (index) => {
+    const icons = [<MessageCircle className="h-4 w-4" />, <Presentation className="h-4 w-4" />, <Users className="h-4 w-4" />];
+    return icons[index] || <MessageCircle className="h-4 w-4" />;
   };
 
-  const getQualityColor = (index) => {
-    const colors = ["#10b981", "#3b82f6", "#f59e0b", "#8b5cf6"];
+  const getSkillColor = (index) => {
+    const colors = ["#10b981", "#3b82f6", "#f59e0b"];
     return colors[index] || "#6b7280";
   };
 
@@ -35,42 +35,42 @@ export default function ProfessionalQualities() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-heading mb-4 text-[var(--text-primary)]">
-            Professional Qualities
+            Soft Skills
           </h2>
           <p className="text-body text-[var(--text-secondary)] max-w-2xl mx-auto">
-            Core strengths and professional attributes that drive my development approach and team collaboration.
+            Essential interpersonal and communication abilities that complement my technical expertise and drive successful collaboration.
           </p>
         </div>
 
-        {/* Professional Qualities */}
+        {/* Soft Skills */}
         <div className="max-w-4xl mx-auto space-y-4 mb-16">
-          {personalInfo.professionalQualities.map((quality, index) => {
+          {personalInfo.softSkills.map((skillItem, index) => {
             const isOpen = openItems.has(index + 1);
-            const qualityColor = getQualityColor(index);
+            const skillColor = getSkillColor(index);
             
             return (
               <div key={index} className="paper-card overflow-hidden">
-                {/* Quality Header */}
+                {/* Skill Header */}
                 <button
                   onClick={() => toggleItem(index + 1)}
                   className="w-full p-6 text-left focus-ring focus:outline-none hover:bg-[var(--paper-border)] transition-colors"
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3 flex-1">
-                      {/* Quality Icon */}
+                      {/* Skill Icon */}
                       <div 
                         className="p-2 rounded-lg flex-shrink-0"
                         style={{ 
-                          backgroundColor: `${qualityColor}20`,
-                          color: qualityColor 
+                          backgroundColor: `${skillColor}20`,
+                          color: skillColor 
                         }}
                       >
-                        {getQualityIcon(index)}
+                        {getSkillIcon(index)}
                       </div>
 
-                      {/* Quality Title */}
+                      {/* Skill Title */}
                       <h3 className="text-lg font-medium text-[var(--text-primary)]">
-                        {quality.quality}
+                        {skillItem.skill}
                       </h3>
                     </div>
 
@@ -83,14 +83,14 @@ export default function ProfessionalQualities() {
                   </div>
                 </button>
 
-                {/* Quality Description */}
+                {/* Skill Description */}
                 <div className={`overflow-hidden transition-all duration-300 ${
                   isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
                   <div className="px-6 pb-6">
                     <div className="pl-14">
                       <p className="text-body text-[var(--text-secondary)] leading-relaxed">
-                        {quality.description}
+                        {skillItem.description}
                       </p>
                     </div>
                   </div>

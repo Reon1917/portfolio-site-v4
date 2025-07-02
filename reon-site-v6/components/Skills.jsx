@@ -104,37 +104,7 @@ export default function Skills() {
         </div>
 
         {/* Achievements & Methodologies */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Achievements */}
-          <div 
-            className="paper-card p-8"
-            style={{
-              animation: isVisible ? "fadeIn 0.6s ease-out 0.4s forwards" : "none",
-              opacity: isVisible ? 1 : 0
-            }}
-          >
-            <div className="flex items-center space-x-3 mb-6">
-              <div className="p-2 rounded-lg bg-[var(--accent)]20">
-                <Award className="h-5 w-5 text-[var(--accent)]" />
-              </div>
-              <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-                Key Achievements
-              </h3>
-            </div>
-
-            <div className="space-y-4">
-              {personalInfo.achievements.map((achievement, index) => (
-                <div key={index} className="border-l-2 border-[var(--accent)] pl-4">
-                  <div className="flex items-center justify-between mb-1">
-                    <h4 className="font-medium text-[var(--text-primary)]">{achievement.title}</h4>
-                    <span className="text-xs text-[var(--text-secondary)]">{achievement.year}</span>
-                  </div>
-                  <p className="text-sm text-[var(--text-secondary)]">{achievement.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
           {/* Relevant Coursework */}
           <div 
             className="paper-card p-8"

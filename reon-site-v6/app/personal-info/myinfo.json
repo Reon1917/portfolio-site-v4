@@ -19,21 +19,18 @@
     "tools": ["Git/GitHub", "VS Code", "Cursor AI", "Docker", "Postman", "Jest"],
     "methodologies": ["Agile Development", "Version Control", "API Testing", "Responsive Design"]
   },
-  "achievements": [
+  "softSkills": [
     {
-      "title": "Academic Excellence",
-      "description": "Maintaining strong GPA while developing practical web applications",
-      "year": "2022-Present"
+      "skill": "Communication",
+      "description": "Strong verbal and written communication skills with ability to explain technical concepts clearly to diverse audiences"
     },
     {
-      "title": "Self-Directed Learning",
-      "description": "Mastered modern web development stack through hands-on projects and continuous learning",
-      "year": "2022-Present"
+      "skill": "Presentation Skills", 
+      "description": "Confident in presenting ideas and technical solutions to teams and stakeholders"
     },
     {
-      "title": "Technical Leadership",
-      "description": "Leading senior project development focusing on student collaboration tools",
-      "year": "2024"
+      "skill": "Leadership",
+      "description": "Experience leading project teams and mentoring peers in collaborative development environments"
     }
   ],
   "projects": [
