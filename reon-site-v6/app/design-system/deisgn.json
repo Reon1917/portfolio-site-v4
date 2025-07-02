@@ -1,0 +1,280 @@
+{
+  "designSystem": {
+    "name": "PaperPortfolio",
+    "description": "A production-grade design system for a Next.js portfolio site with a paper-like texture, optimized for recruiters and developers, supporting both dark and light modes.",
+    "tokens": {
+      "colors": {
+        "light": {
+          "background": {
+            "primary": "#F8F1E9",
+            "secondary": "#EDE4D8",
+            "accent": "#D9C2A6"
+          },
+          "text": {
+            "primary": "#2D2A26",
+            "secondary": "#5B554E",
+            "accent": "#8B7E66"
+          },
+          "interactive": {
+            "primary": "#4A90E2",
+            "hover": "#357ABD",
+            "active": "#2A6099"
+          },
+          "border": "#D9C2A6"
+        },
+        "dark": {
+          "background": {
+            "primary": "#2D2A26",
+            "secondary": "#3C3833",
+            "accent": "#4A4540"
+          },
+          "text": {
+            "primary": "#F8F1E9",
+            "secondary": "#D9C2A6",
+            "accent": "#B0A08A"
+          },
+          "interactive": {
+            "primary": "#6AB0FF",
+            "hover": "#5599E6",
+            "active": "#4082CC"
+          },
+          "border": "#4A4540"
+        }
+      },
+      "typography": {
+        "fontFamily": {
+          "primary": "'Inter', -apple-system, BlinkMacSystemFont, sans-serif",
+          "display": "'Playfair Display', serif",
+          "code": "'Fira Code', monospace"
+        },
+        "fontSizes": {
+          "xs": "0.75rem",
+          "sm": "0.875rem",
+          "md": "1rem",
+          "lg": "1.25rem",
+          "xl": "1.5rem",
+          "2xl": "2rem",
+          "3xl": "3rem"
+        },
+        "fontWeights": {
+          "regular": 400,
+          "medium": 500,
+          "bold": 700
+        },
+        "lineHeights": {
+          "tight": 1.2,
+          "normal": 1.5,
+          "loose": 1.8
+        }
+      },
+      "spacing": {
+        "xs": "0.25rem",
+        "sm": "0.5rem",
+        "md": "1rem",
+        "lg": "1.5rem",
+        "xl": "2rem",
+        "2xl": "3rem"
+      },
+      "borderRadius": {
+        "sm": "0.25rem",
+        "md": "0.5rem",
+        "lg": "1rem"
+      },
+      "shadows": {
+        "sm": "0 2px 4px rgba(0, 0, 0, 0.1)",
+        "md": "0 4px 8px rgba(0, 0, 0, 0.15)",
+        "lg": "0 8px 16px rgba(0, 0, 0, 0.2)"
+      }
+    },
+    "components": {
+      "button": {
+        "primary": {
+          "background": "tokens.colors.[mode].interactive.primary",
+          "color": "tokens.colors.[mode].text.primary",
+          "padding": "tokens.spacing.sm tokens.spacing.md",
+          "borderRadius": "tokens.borderRadius.md",
+          "fontSize": "tokens.typography.fontSizes.sm",
+          "fontWeight": "tokens.typography.fontWeights.medium",
+          "hover": {
+            "background": "tokens.colors.[mode].interactive.hover",
+            "shadow": "tokens.shadows.sm"
+          },
+          "active": {
+            "background": "tokens.colors.[mode].interactive.active"
+          }
+        },
+        "secondary": {
+          "background": "transparent",
+          "color": "tokens.colors.[mode].text.primary",
+          "border": "1px solid tokens.colors.[mode].border",
+          "padding": "tokens.spacing.sm tokens.spacing.md",
+          "borderRadius": "tokens.borderRadius.md",
+          "fontSize": "tokens.typography.fontSizes.sm",
+          "fontWeight": "tokens.typography.fontWeights.medium",
+          "hover": {
+            "background": "tokens.colors.[mode].background.accent",
+            "shadow": "tokens.shadows.sm"
+          }
+        }
+      },
+      "card": {
+        "background": "tokens.colors.[mode].background.secondary",
+        "border": "1px solid tokens.colors.[mode].border",
+        "borderRadius": "tokens.borderRadius.lg",
+        "padding": "tokens.spacing.lg",
+        "shadow": "tokens.shadows.md",
+        "texture": {
+          "backgroundImage": "url('/textures/paper-light.jpg')",
+          "darkBackgroundImage": "url('/textures/paper-dark.jpg')",
+          "backgroundSize": "cover",
+          "backgroundRepeat": "no-repeat"
+        }
+      },
+      "navbar": {
+        "background": "tokens.colors.[mode].background.primary",
+        "padding": "tokens.spacing.md tokens.spacing.xl",
+        "shadow": "tokens.shadows.sm",
+        "texture": {
+          "backgroundImage": "url('/textures/paper-light.jpg')",
+          "darkBackgroundImage": "url('/textures/paper-dark.jpg')",
+          "backgroundSize": "cover",
+          "backgroundRepeat": "no-repeat"
+        },
+        "link": {
+          "color": "tokens.colors.[mode].text.secondary",
+          "fontSize": "tokens.typography.fontSizes.sm",
+          "fontWeight": "tokens.typography.fontWeights.medium",
+          "hover": {
+            "color": "tokens.colors.[mode].text.primary",
+            "textDecoration": "underline"
+          }
+        }
+      },
+      "typography": {
+        "heading": {
+          "fontFamily": "tokens.typography.fontFamily.display",
+          "fontWeight": "tokens.typography.fontWeights.bold",
+          "lineHeight": "tokens.typography.lineHeights.tight",
+          "sizes": {
+            "h1": "tokens.typography.fontSizes['3xl']",
+            "h2": "tokens.typography.fontSizes['2xl']",
+            "h3": "tokens.typography.fontSizes.xl",
+            "h4": "tokens.typography.fontSizes.lg"
+          }
+        },
+        "body": {
+          "fontFamily": "tokens.typography.fontFamily.primary",
+          "fontWeight": "tokens.typography.fontWeights.regular",
+          "lineHeight": "tokens.typography.lineHeights.normal",
+          "fontSize": "tokens.typography.fontSizes.md"
+        },
+        "code": {
+          "fontFamily": "tokens.typography.fontFamily.code",
+          "fontSize": "tokens.typography.fontSizes.sm",
+          "background": "tokens.colors.[mode].background.accent",
+          "padding": "tokens.spacing.xs tokens.spacing.sm",
+          "borderRadius": "tokens.borderRadius.sm"
+        }
+      }
+    },
+    "layout": {
+      "container": {
+        "maxWidth": "1280px",
+        "padding": "tokens.spacing.md",
+        "margin": "0 auto"
+      },
+      "grid": {
+        "columns": 12,
+        "gap": "tokens.spacing.lg"
+      },
+      "sections": {
+        "hero": {
+          "padding": "tokens.spacing['2xl'] tokens.spacing.md",
+          "background": "tokens.colors.[mode].background.primary",
+          "texture": {
+            "backgroundImage": "url('/textures/paper-light.jpg')",
+            "darkBackgroundImage": "url('/textures/paper-dark.jpg')",
+            "backgroundSize": "cover",
+            "backgroundRepeat": "no-repeat"
+          },
+          "content": {
+            "title": "typography.heading.h1",
+            "subtitle": "typography.heading.h3",
+            "cta": "components.button.primary"
+          }
+        },
+        "projects": {
+          "padding": "tokens.spacing.xl tokens.spacing.md",
+          "background": "tokens.colors.[mode].background.secondary",
+          "cardLayout": "components.card",
+          "grid": {
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 3
+            },
+            "gap": "tokens.spacing.lg"
+          }
+        },
+        "about": {
+          "padding": "tokens.spacing.xl tokens.spacing.md",
+          "background": "tokens.colors.[mode].background.primary",
+          "texture": {
+            "backgroundImage": "url('/textures/paper-light.jpg')",
+            "darkBackgroundImage": "url('/textures/paper-dark.jpg')",
+            "backgroundSize": "cover",
+            "backgroundRepeat": "no-repeat"
+          },
+          "content": {
+            "title": "typography.heading.h2",
+            "body": "typography.body"
+          }
+        },
+        "contact": {
+          "padding": "tokens.spacing.xl tokens.spacing.md",
+          "background": "tokens.colors.[mode].background.secondary",
+          "form": {
+            "input": {
+              "background": "tokens.colors.[mode].background.primary",
+              "border": "1px solid tokens.colors.[mode].border",
+              "borderRadius": "tokens.borderRadius.sm",
+              "padding": "tokens.spacing.sm",
+              "fontSize": "tokens.typography.fontSizes.sm"
+            },
+            "button": "components.button.primary"
+          }
+        }
+      }
+    },
+    "modes": {
+      "light": {
+        "default": true,
+        "colors": "tokens.colors.light",
+        "textureOpacity": 0.6
+      },
+      "dark": {
+        "default": false,
+        "colors": "tokens.colors.dark",
+        "textureOpacity": 0.7
+      }
+    },
+    "responsive": {
+      "breakpoints": {
+        "mobile": "0px",
+        "tablet": "768px",
+        "desktop": "1024px"
+      }
+    },
+    "accessibility": {
+      "contrastRatio": "4.5:1",
+      "focus": {
+        "outline": "2px solid tokens.colors.[mode].interactive.primary",
+        "outlineOffset": "2px"
+      },
+      "aria": {
+        "labels": true,
+        "roles": true
+      }
+    }
+  }
+}

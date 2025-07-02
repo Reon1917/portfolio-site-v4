@@ -1,0 +1,68 @@
+{
+  "personalInfo": {
+    "name": "Lin Myat Phyo",
+    "origin": "Myanmar",
+    "currentLocation": "Bangkok, Thailand",
+    "occupation": "Web Developer",
+    "education": "Junior year student at Assumption University of Thailand"
+  },
+  "about": "With a deep love for computers and web design, I'm constantly seeking to learn new concepts and push the boundaries of what's possible in digital creation. My goal is to craft user-centric web experiences that are both functional and aesthetically pleasing.",
+  "skills": {
+    "programmingLanguages": ["Python", "Java", "Javascript", "Typescript"],
+    "markupLanguages": ["HTML", "CSS"],
+    "cssFrameworks": ["Tailwind CSS"],
+    "javascriptFrameworks": ["React"],
+    "webFrameworks": ["NextJS"],
+    "databases": ["SQL", "Postgres SQL", "Oracle SQL", "NeonDB", "Supabase", "MongoDB"],
+    "cloudPlatforms": ["AWS", "Vercel", "Netlify"],
+    "versionControl": ["Git", "Github"],
+    "developmentTools": ["VS code", "Cursor AI IDE", "Postman", "Jest", "Docker"]
+  },
+  "projects": [
+    {
+      "name": "Collavo",
+      "description": "Student-focused task management and collaboration web application",
+      "type": "Senior Project 1"
+    },
+    {
+      "name": "Project 2",
+      "description": "Placeholder",
+      "type": "Placeholder"
+    },
+    {
+      "name": "Project 3",
+      "description": "Placeholder",
+      "type": "Placeholder"
+    }
+  ],
+  "relevantCourses": [
+    "Object-oriented Programming",
+    "Web Application Development",
+    "Backend Application Development",
+    "Data Structures and Algorithms",
+    "Digital Marketing"
+  ],
+  "moreAboutMe": [
+    {
+      "question": "What other hobbies do you have?",
+      "answer": "Gaming, gym, sometimes read novels"
+    },
+    {
+      "question": "What peripherals do I use?",
+      "answer": "NUBWO X804 Keyboard, Attack Shark X3 Mouse, KZ Castor Earphone, FIFINE K669 MIC, UGreen Web Cam, AOC 24G4 180hz Monitor"
+    },
+    {
+      "question": "What's my first programming language?",
+      "answer": "Java and Python, but I learned way more with Python"
+    },
+    {
+      "question": "When did I start learning programming seriously?",
+      "answer": "2022 when I started attending AU"
+    }
+  ],
+  "contacts": {
+    "instagram": "",
+    "linkedin": "",
+    "github": ""
+  }
+}
