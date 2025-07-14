@@ -1,0 +1,145 @@
+{
+    "apple_design_system": {
+      "core_principles": {
+        "simplicity": "Remove everything unnecessary. If it doesn't serve a purpose, it shouldn't exist.",
+        "clarity": "Content is king. Make information instantly understandable.",
+        "deference": "UI should complement content, not compete with it.",
+        "depth": "Use subtle layers and motion to create hierarchy without skeuomorphism."
+      },
+      "layout": {
+        "spacing": {
+          "unit": 8,
+          "scale": [8, 16, 24, 32, 40, 48, 64, 80, 96, 128],
+          "section_padding": "80px to 120px between major sections",
+          "container_max_width": "980px to 1200px",
+          "margins": "Generous white space is luxury"
+        },
+        "grid": "12-column grid with significant gutters",
+        "alignment": "Center-aligned content with left-aligned text blocks"
+      },
+      "typography": {
+        "font_family": {
+          "primary": "SF Pro Display for headlines",
+          "secondary": "SF Pro Text for body",
+          "fallback": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        },
+        "scale": {
+          "hero": "64px to 96px",
+          "h1": "48px to 56px",
+          "h2": "32px to 40px",
+          "h3": "24px to 28px",
+          "body": "17px to 19px",
+          "caption": "14px to 15px"
+        },
+        "weights": {
+          "hero": 600,
+          "headings": 600,
+          "body": 400,
+          "emphasis": 500
+        },
+        "line_height": {
+          "headings": 1.1,
+          "body": 1.5
+        },
+        "letter_spacing": {
+          "hero": "-0.02em",
+          "headings": "-0.01em",
+          "body": "0"
+        }
+      },
+      "color": {
+        "philosophy": "Minimal color palette with purposeful accents",
+        "background": {
+          "primary": "#000000 (dark) or #FFFFFF (light)",
+          "secondary": "#111111 (dark) or #F5F5F7 (light)",
+          "tertiary": "#1D1D1F (dark) or #FBFBFD (light)"
+        },
+        "text": {
+          "primary": "#F5F5F7 (dark) or #1D1D1F (light)",
+          "secondary": "#86868B (both modes)",
+          "link": "#2997FF",
+          "link_hover": "#0071E3"
+        },
+        "accent": {
+          "blue": "#0071E3",
+          "green": "#30D158",
+          "red": "#FF3B30",
+          "usage": "Sparingly, only for CTAs and key interactions"
+        }
+      },
+      "components": {
+        "buttons": {
+          "style": "Rounded corners (8px to 12px)",
+          "padding": "16px 32px",
+          "variants": ["solid fill for primary", "ghost for secondary"],
+          "hover": "Subtle background color shift, no dramatic changes"
+        },
+        "cards": {
+          "background": "Subtle different from page background",
+          "border": "None or very subtle (1px, 10% opacity)",
+          "shadow": "None or extremely subtle (0 2px 8px rgba(0,0,0,0.04))",
+          "radius": "12px to 18px"
+        },
+        "navigation": {
+          "style": "Minimal, transparent or blur background",
+          "height": "48px to 52px",
+          "blur": "backdrop-filter: blur(20px)",
+          "items": "14px to 16px font size, 500 weight"
+        }
+      },
+      "animation": {
+        "philosophy": "Purposeful, not decorative",
+        "duration": {
+          "micro": "0.1s to 0.2s",
+          "small": "0.3s to 0.4s",
+          "medium": "0.5s to 0.6s",
+          "large": "0.8s to 1s"
+        },
+        "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "properties": ["opacity", "transform", "filter"],
+        "principles": "Animate only on interaction, not on load"
+      },
+      "imagery": {
+        "quality": "Ultra high-resolution only",
+        "style": "Product-focused, minimal backgrounds",
+        "spacing": "Give images room to breathe",
+        "loading": "Progressive loading with blur-up effect"
+      },
+      "interaction": {
+        "hover_states": "Subtle - opacity or slight transform",
+        "focus_states": "Clear but refined outline",
+        "active_states": "Slight scale reduction (0.98)",
+        "feedback": "Immediate but gentle"
+      },
+      "responsive": {
+        "breakpoints": {
+          "small": 734,
+          "medium": 1068,
+          "large": 1440
+        },
+        "approach": "Content-first, not device-first",
+        "scaling": "Proportional reduction, maintain hierarchy"
+      },
+      "accessibility": {
+        "contrast": "WCAG AAA where possible",
+        "focus": "Always visible, styled consistently",
+        "motion": "Respect prefers-reduced-motion"
+      },
+      "implementation_notes": {
+        "dont": [
+          "Use drop shadows heavily",
+          "Add unnecessary animations",
+          "Use more than 2-3 font weights",
+          "Create visual noise",
+          "Use borders when spacing suffices"
+        ],
+        "do": [
+          "Embrace white space",
+          "Use consistent spacing units",
+          "Prioritize content hierarchy",
+          "Keep interactions predictable",
+          "Make everything feel responsive"
+        ]
+      }
+    }
+  }

@@ -1,0 +1,95 @@
+{
+  "personalInfo": {
+    "name": "Lin Myat Phyo",
+    "title": "Full-Stack Web Developer",
+    "origin": "Myanmar",
+    "currentLocation": "Bangkok, Thailand",
+    "occupation": "Web Developer & Computer Science Student",
+    "education": "Information Technology - Assumption University of Thailand (Expected 2026)",
+    "experience": "2+ years of web development experience",
+    "careerObjective": "Passionate full-stack developer seeking opportunities to create innovative web solutions and contribute to dynamic development teams"
+  },
+  "about": "Dedicated computer science student with 2+ years of hands-on web development experience. Specialized in creating user-centric web applications using modern technologies like React, Next.js, and cloud platforms. Proven ability to deliver functional, scalable solutions while maintaining clean, maintainable code. Eager to contribute technical skills and fresh perspectives to innovative projects.",
+  "skills": {
+    "programmingLanguages": ["JavaScript", "TypeScript", "Python", "Java"],
+    "frontend": ["React", "Next.js", "HTML5", "CSS", "Tailwind CSS"],
+    "backend": ["Node.js", "Express.js", "RESTful APIs"],
+    "databases": ["PostgreSQL", "MongoDB", "Supabase", "NeonDB"],
+    "cloudPlatforms": ["AWS", "Vercel", "Netlify"],
+    "tools": ["Git/GitHub", "VS Code", "Cursor AI", "Docker", "Postman", "Jest"],
+    "methodologies": ["Agile Development", "Version Control", "API Testing", "Responsive Design"]
+  },
+  "softSkills": [
+    {
+      "skill": "Communication",
+      "description": "Strong verbal and written communication skills with ability to explain technical concepts clearly to diverse audiences"
+    },
+    {
+      "skill": "Presentation Skills", 
+      "description": "Confident in presenting ideas and technical solutions to teams and stakeholders"
+    },
+    {
+      "skill": "Leadership",
+      "description": "Experience leading project teams and mentoring peers in collaborative development environments"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Collavo",
+      "description": "Full-stack student collaboration platform with real-time features, task management, and responsive design. Built with React, Next.js, and Supabase.",
+      "type": "Senior Capstone Project",
+      "technologies": ["React", "Next.js", "TypeScript", "Supabase", "Tailwind CSS"],
+      "status": "In Development",
+      "highlights": ["Real-time collaboration", "Responsive design", "User authentication", "Database optimization"]
+    },
+    {
+      "name": "E-Commerce Website",
+      "description": "A beautiful e-commerce website with a modern design and a responsive layout.",
+      "type": "Frontend Development Project",
+      "technologies": ["Next.js", "Tailwind CSS", "React","Shadcn UI", "Vercel"],
+      "status": "Completed",
+      "highlights": ["Responsive design", "Modern design", "User-friendly interface"]
+    },
+    {
+      "name": "Portfolio Website",
+      "description": "Modern, responsive portfolio website with dark/light mode and optimized performance.",
+      "type": "Personal Project",
+      "technologies": ["Next.js", "Tailwind CSS", "TypeScript", "Vercel"],
+      "status": "Live",
+      "highlights": ["Performance optimization", "SEO implementation", "Responsive design", "Accessibility compliance"]
+    }
+  ],
+  "relevantCourses": [
+    "Object-Oriented Programming",
+    "Web Application Development", 
+    "Backend Application Development",
+    "Data Structures and Algorithms",
+    "Database Management Systems",
+    "Software Engineering Principles"
+  ],
+  "professionalQualities": [
+    {
+      "quality": "Problem-Solving Approach",
+      "description": "Strong analytical thinking with focus on efficient, scalable solutions"
+    },
+    {
+      "quality": "Continuous Learning",
+      "description": "Actively staying current with web development trends and best practices"
+    },
+    {
+      "quality": "Team Collaboration",
+      "description": "Experience in collaborative development and version control workflows"
+    },
+    {
+      "quality": "Detail-Oriented Development",
+      "description": "Commitment to clean code, testing, and user experience optimization"
+    }
+  ],
+  "contacts": {
+    "email": "linmyatphyo03@gmail.com",
+    "phone": "0926088220",
+    "linkedin": "https://www.linkedin.com/in/lin-myat-phyo-b872b1217",
+    "github": "https://github.com/linmyatphyo",
+    "instagram": "https://www.instagram.com/re0n1917"
+  }
+}
