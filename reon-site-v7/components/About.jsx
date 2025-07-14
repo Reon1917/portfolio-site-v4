@@ -2,38 +2,46 @@ import myInfo from "@/data/myinfo.json";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-4 bg-background">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-foreground tracking-tight">
+    <section id="about" className="py-24 px-4 bg-background" style={{ paddingTop: '96px', paddingBottom: '96px' }}>
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-20">
+          {/* H1: 48px-56px, weight 600, letter-spacing -0.01em */}
+          <h2 className="text-5xl md:text-6xl font-semibold mb-6 text-foreground tracking-tight leading-tight" style={{ letterSpacing: '-0.01em' }}>
             About Me
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          {/* Body: 17px-19px, weight 400, line-height 1.5 */}
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-normal leading-relaxed">
             Passionate about creating innovative web solutions
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* Left Column - Main Content */}
-          <div className="space-y-8">
-            <p className="text-lg leading-relaxed text-foreground/90">
+          <div className="space-y-10">
+            {/* Body: 17px-19px, weight 400, line-height 1.5 */}
+            <p className="text-lg font-normal leading-relaxed text-foreground/90">
               {myInfo.about}
             </p>
             
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-foreground">Career Objective</h3>
-              <p className="text-foreground/80 leading-relaxed">
+              {/* H3: 24px-28px, weight 600, letter-spacing -0.01em */}
+              <h3 className="text-2xl font-semibold mb-4 text-foreground leading-tight" style={{ letterSpacing: '-0.01em' }}>
+                Career Objective
+              </h3>
+              <p className="text-foreground/80 font-normal leading-relaxed">
                 {myInfo.personalInfo.careerObjective}
               </p>
             </div>
 
             <div>
-              <h3 className="text-xl font-semibold mb-4 text-foreground">Key Strengths</h3>
-              <div className="space-y-3">
+              <h3 className="text-2xl font-semibold mb-6 text-foreground leading-tight" style={{ letterSpacing: '-0.01em' }}>
+                Key Strengths
+              </h3>
+              <div className="space-y-4">
                 {myInfo.softSkills.map((skill, index) => (
-                  <div key={index} className="border-l-4 border-primary pl-4">
-                    <h4 className="font-medium text-foreground">{skill.skill}</h4>
-                    <p className="text-sm text-foreground/70">{skill.description}</p>
+                  <div key={index} className="border-l-4 border-primary pl-6">
+                    <h4 className="font-medium text-foreground mb-1">{skill.skill}</h4>
+                    <p className="text-sm text-foreground/70 font-normal leading-relaxed">{skill.description}</p>
                   </div>
                 ))}
               </div>
@@ -44,21 +52,21 @@ export default function About() {
           <div className="space-y-8">
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6">
-              <div className="text-center p-6 bg-secondary/30 rounded-xl">
+              <div className="text-center p-6 bg-secondary/15 rounded-2xl border border-border/20">
                 <div className="text-3xl font-bold text-primary mb-2">2+</div>
-                <p className="text-sm text-muted-foreground">Years Experience</p>
+                <p className="text-sm text-muted-foreground font-normal">Years Experience</p>
               </div>
-              <div className="text-center p-6 bg-secondary/30 rounded-xl">
+              <div className="text-center p-6 bg-secondary/15 rounded-2xl border border-border/20">
                 <div className="text-3xl font-bold text-primary mb-2">2026</div>
-                <p className="text-sm text-muted-foreground">Expected Graduation</p>
+                <p className="text-sm text-muted-foreground font-normal">Expected Graduation</p>
               </div>
-              <div className="text-center p-6 bg-secondary/30 rounded-xl">
+              <div className="text-center p-6 bg-secondary/15 rounded-2xl border border-border/20">
                 <div className="text-3xl font-bold text-primary mb-2">3</div>
-                <p className="text-sm text-muted-foreground">Major Projects</p>
+                <p className="text-sm text-muted-foreground font-normal">Major Projects</p>
               </div>
-              <div className="text-center p-6 bg-secondary/30 rounded-xl">
+              <div className="text-center p-6 bg-secondary/15 rounded-2xl border border-border/20">
                 <div className="text-3xl font-bold text-primary mb-2">10+</div>
-                <p className="text-sm text-muted-foreground">Technologies</p>
+                <p className="text-sm text-muted-foreground font-normal">Technologies</p>
               </div>
             </div>
 

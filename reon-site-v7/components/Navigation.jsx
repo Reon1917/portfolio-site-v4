@@ -6,9 +6,12 @@ import { useTheme } from "next-themes";
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
+    setMounted(true);
+    
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -35,9 +38,9 @@ export default function Navigation() {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       scrolled ? "bg-background/80 backdrop-blur-md border-b border-border/40" : "bg-transparent"
-    }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    }`} style={{ backdropFilter: scrolled ? 'blur(20px)' : 'none' }}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <button
             onClick={() => scrollToSection("hero")}
@@ -53,6 +56,7 @@ export default function Navigation() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                style={{ fontSize: '15px', fontWeight: 500 }}
               >
                 {item.name}
               </button>
@@ -63,7 +67,7 @@ export default function Navigation() {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="w-9 h-9 rounded-lg border border-border hover:bg-secondary/50 transition-colors flex items-center justify-center"
             >
-              {theme === "dark" ? "☀️" : "🌙"}
+              {mounted ? (theme === "dark" ? "☀️" : "🌙") : "🌙"}
             </button>
           </div>
 
@@ -94,7 +98,7 @@ export default function Navigation() {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="block w-full text-left px-3 py-2 text-base font-medium text-foreground/80 hover:text-primary hover:bg-secondary/50 rounded-lg transition-colors"
             >
-              {theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode"}
+              {mounted ? (theme === "dark" ? "☀️ Light Mode" : "🌙 Dark Mode") : "🌙 Dark Mode"}
             </button>
           </div>
         </div>
