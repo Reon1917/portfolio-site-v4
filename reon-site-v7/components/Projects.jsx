@@ -44,64 +44,85 @@ export default function Projects() {
           {myInfo.projects.map((project, index) => (
             <div
               key={index}
-              className="bg-secondary/20 backdrop-blur-sm rounded-xl p-6 border border-border hover:bg-secondary/30 transition-all duration-300 group"
+              className="group relative glassmorphism rounded-2xl p-6 border border-border/30 hover:border-primary/30 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-2xl overflow-hidden"
             >
-              {/* Project Header */}
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{project.name}</h3>
-                  <span className="px-3 py-1 bg-secondary/50 text-foreground/70 rounded-lg text-xs font-medium">
-                    {project.type}
-                  </span>
-                </div>
-                <div className={`px-3 py-1 rounded-lg text-xs font-medium border ${getStatusColor(project.status)}`}>
-                  {getStatusIcon(project.status)} {project.status}
-                </div>
+              {/* Background Gradient Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+              
+              {/* Glowing Border Effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary to-blue-500 p-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="h-full w-full rounded-2xl bg-background/95"></div>
               </div>
-
-              {/* Project Description */}
-              <p className="text-foreground/80 text-sm leading-relaxed mb-4">
-                {project.description}
-              </p>
-
-              {/* Technologies */}
-              <div className="mb-4">
-                <h4 className="text-sm font-medium text-foreground/90 mb-2">Technologies Used</h4>
-                <div className="flex flex-wrap gap-1">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-2 py-1 bg-primary/10 text-primary rounded text-xs font-medium border border-primary/20"
-                    >
-                      {tech}
+              
+              <div className="relative z-10">
+                {/* Project Header */}
+                <div className="flex items-start justify-between mb-6">
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                      {project.name}
+                    </h3>
+                    <span className="px-3 py-1 bg-secondary/30 text-foreground/70 rounded-full text-xs font-medium border border-border/30">
+                      {project.type}
                     </span>
-                  ))}
+                  </div>
+                  <div className={`px-3 py-1 rounded-full text-xs font-medium border ${getStatusColor(project.status)} flex items-center space-x-1`}>
+                    <span>{getStatusIcon(project.status)}</span>
+                    <span>{project.status}</span>
+                  </div>
                 </div>
-              </div>
 
-              {/* Key Features */}
-              <div className="mb-6">
-                <h4 className="text-sm font-medium text-foreground/90 mb-2">Key Features</h4>
-                <div className="space-y-1">
-                  {project.highlights.map((highlight, highlightIndex) => (
-                    <div key={highlightIndex} className="flex items-center space-x-2">
-                      <div className="w-1 h-1 bg-primary rounded-full"></div>
-                      <span className="text-xs text-foreground/70">{highlight}</span>
-                    </div>
-                  ))}
+                {/* Project Description */}
+                <p className="text-foreground/80 text-sm leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-medium text-foreground/90 mb-3">Tech Stack</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium border border-primary/20 hover:bg-primary/20 transition-colors cursor-default"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
 
-              {/* Project Actions */}
-              <div className="flex gap-2">
-                <button className="flex-1 px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-medium hover:bg-primary/20 transition-colors border border-primary/20">
-                  View Details
-                </button>
-                {project.status === "Live" && (
-                  <button className="flex-1 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors">
-                    Live Demo
+                {/* Key Features */}
+                <div className="mb-8">
+                  <h4 className="text-sm font-medium text-foreground/90 mb-3">✨ Key Features</h4>
+                  <div className="space-y-2">
+                    {project.highlights.map((highlight, highlightIndex) => (
+                      <div key={highlightIndex} className="flex items-center space-x-3">
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-foreground/80">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Project Actions */}
+                <div className="flex gap-3 mt-auto">
+                  <button className="flex-1 group/btn relative px-4 py-3 bg-primary/10 text-primary rounded-xl text-sm font-medium hover:bg-primary/20 transition-all duration-300 border border-primary/20 overflow-hidden">
+                    <span className="relative z-10 flex items-center justify-center space-x-1">
+                      <span>👁️</span>
+                      <span>View Details</span>
+                    </span>
+                    <div className="absolute inset-0 bg-primary/5 scale-x-0 group-hover/btn:scale-x-100 transition-transform duration-300 origin-left"></div>
                   </button>
-                )}
+                  {project.status === "Live" && (
+                    <button className="flex-1 group/btn relative px-4 py-3 bg-primary text-primary-foreground rounded-xl text-sm font-medium hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl overflow-hidden">
+                      <span className="relative z-10 flex items-center justify-center space-x-1">
+                        <span>🚀</span>
+                        <span>Live Demo</span>
+                      </span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-primary to-blue-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           ))}
