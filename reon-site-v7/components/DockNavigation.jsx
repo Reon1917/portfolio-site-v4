@@ -9,27 +9,27 @@ export default function DockNavigation() {
     {
       id: "hero",
       label: "Home",
-      icon: "🏠"
+      icon: "Home"
     },
     {
       id: "about", 
       label: "About",
-      icon: "👨‍💻"
+      icon: "About"
     },
     {
       id: "skills",
       label: "Skills", 
-      icon: "⚡"
+      icon: "Skills"
     },
     {
       id: "projects",
       label: "Projects",
-      icon: "🚀"
+      icon: "Work"
     },
     {
       id: "contact",
       label: "Contact",
-      icon: "💬"
+      icon: "Contact"
     }
   ];
 

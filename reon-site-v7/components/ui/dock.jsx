@@ -42,9 +42,9 @@ export default function Dock({ items = [], onItemClick, activeItem }) {
 
   const getItemSize = () => {
     if (deviceType === 'mobile') {
-      return "w-10 h-10";
+      return "px-3 py-2 min-w-[60px]";
     }
-    return "w-12 h-12";
+    return "px-4 py-3 min-w-[80px]";
   };
 
   return (
@@ -70,9 +70,9 @@ export default function Dock({ items = [], onItemClick, activeItem }) {
               className={`
                 ${getItemSize()}
                 flex items-center justify-center
-                rounded-xl transition-all duration-300 ease-out
+                rounded-lg transition-all duration-300 ease-out
                 hover:bg-primary/10 active:scale-95
-                ${activeItem === item.id ? 'bg-primary/20 shadow-lg' : ''}
+                ${activeItem === item.id ? 'bg-primary/15 shadow-md' : ''}
                 relative group
               `}
               style={{
@@ -81,14 +81,15 @@ export default function Dock({ items = [], onItemClick, activeItem }) {
               }}
               aria-label={item.label}
             >
-              {/* Icon */}
-              <div className={`
+              {/* Text Icon */}
+              <span className={`
                 text-foreground/80 group-hover:text-primary transition-colors duration-200
-                ${deviceType === 'mobile' ? 'text-lg' : 'text-xl'}
-                ${activeItem === item.id ? 'text-primary' : ''}
+                ${deviceType === 'mobile' ? 'text-xs' : 'text-sm'}
+                ${activeItem === item.id ? 'text-primary font-medium' : 'font-normal'}
+                font-mono tracking-wide
               `}>
                 {item.icon}
-              </div>
+              </span>
               
               {/* Tooltip */}
               {deviceType !== 'mobile' && (
