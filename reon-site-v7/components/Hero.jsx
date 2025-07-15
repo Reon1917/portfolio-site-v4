@@ -49,7 +49,7 @@ export default function Hero() {
   };
 
   return (
-    <section className={`relative min-h-screen flex items-center justify-center ${spacing.container} ${spacing.notchPadding} bg-background overflow-hidden`}>
+    <section className={`relative min-h-screen flex items-center justify-center ${spacing.container} ${spacing.notchPadding} ${deviceType === 'mobile' ? 'pt-16' : deviceType === 'tablet' ? 'pt-18' : 'pt-20'} bg-background overflow-hidden`}>
       {/* Simplified Background Elements */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl"></div>

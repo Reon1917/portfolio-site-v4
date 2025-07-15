@@ -4,6 +4,7 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import DockNavigation from "@/components/DockNavigation";
 
 export default function Home() {
   return (
@@ -18,11 +19,14 @@ export default function Home() {
         <Projects />
         <Contact />
       </main>
-      <footer className="py-8 px-4 text-center text-sm text-muted-foreground border-t border-border/40">
+      <footer className="py-8 px-4 pb-24 text-center text-sm text-muted-foreground border-t border-border/40">
         <p>
           © 2024 Lin Myat Phyo. Built with Next.js and Tailwind CSS.
         </p>
       </footer>
+      
+      {/* Dock Navigation */}
+      <DockNavigation />
     </div>
   );
 }
