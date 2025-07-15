@@ -46,22 +46,22 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.114 0.019 285.858);
+  --foreground: oklch(0.085 0.019 285.858);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.114 0.019 285.858);
+  --card-foreground: oklch(0.085 0.019 285.858);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.114 0.019 285.858);
+  --popover-foreground: oklch(0.085 0.019 285.858);
   --primary: oklch(0.479 0.201 260.091);
   --primary-foreground: oklch(0.984 0.003 247.858);
   --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.114 0.019 285.858);
+  --secondary-foreground: oklch(0.085 0.019 285.858);
   --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
+  --muted-foreground: oklch(0.454 0.046 257.417);
   --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.114 0.019 285.858);
+  --accent-foreground: oklch(0.085 0.019 285.858);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
+  --border: oklch(0.888 0.013 255.508);
+  --input: oklch(0.888 0.013 255.508);
   --ring: oklch(0.479 0.201 260.091);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -79,24 +79,24 @@
 }
 
 .dark {
-  --background: oklch(0 0 0);
-  --foreground: oklch(0.968 0.007 247.896);
+  --background: oklch(0.045 0.005 285.856);
+  --foreground: oklch(0.950 0.007 247.896);
   --card: oklch(0.069 0.019 285.856);
-  --card-foreground: oklch(0.968 0.007 247.896);
+  --card-foreground: oklch(0.950 0.007 247.896);
   --popover: oklch(0.069 0.019 285.856);
-  --popover-foreground: oklch(0.968 0.007 247.896);
-  --primary: oklch(0.584 0.201 260.091);
-  --primary-foreground: oklch(0 0 0);
-  --secondary: oklch(0.069 0.019 285.856);
-  --secondary-foreground: oklch(0.968 0.007 247.896);
-  --muted: oklch(0.069 0.019 285.856);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.114 0.019 285.858);
-  --accent-foreground: oklch(0.968 0.007 247.896);
+  --popover-foreground: oklch(0.950 0.007 247.896);
+  --primary: oklch(0.684 0.201 260.091);
+  --primary-foreground: oklch(0.045 0.005 285.856);
+  --secondary: oklch(0.089 0.019 285.856);
+  --secondary-foreground: oklch(0.950 0.007 247.896);
+  --muted: oklch(0.089 0.019 285.856);
+  --muted-foreground: oklch(0.654 0.046 257.417);
+  --accent: oklch(0.134 0.019 285.858);
+  --accent-foreground: oklch(0.950 0.007 247.896);
   --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.15 0.019 285.856);
-  --input: oklch(0.15 0.019 285.856);
-  --ring: oklch(0.584 0.201 260.091);
+  --border: oklch(0.190 0.019 285.856);
+  --input: oklch(0.190 0.019 285.856);
+  --ring: oklch(0.684 0.201 260.091);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -122,6 +122,31 @@
 }
 
 @layer utilities {
+  /* Safe area utilities for mobile notch and punch hole */
+  .pt-safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .pb-safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .pl-safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .pr-safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  .pt-safe-top-4 {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+  
+  .pt-safe-top-6 {
+    padding-top: max(1.5rem, env(safe-area-inset-top));
+  }
+
   .animate-fadeInUp {
     opacity: 0;
     transform: translateY(30px);

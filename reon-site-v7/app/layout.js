@@ -17,7 +17,7 @@ export const metadata = {
   description: "Full-Stack Web Developer with 2+ years of experience. Specialized in React, Next.js, and modern web technologies. Based in Bangkok, Thailand.",
   keywords: "Full-Stack Developer, Web Developer, React, Next.js, JavaScript, TypeScript, Bangkok, Thailand",
   authors: [{ name: "Lin Myat Phyo" }],
-  viewport: "width=device-width, initial-scale=1",
+  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
 };
 
 export default function RootLayout({ children }) {

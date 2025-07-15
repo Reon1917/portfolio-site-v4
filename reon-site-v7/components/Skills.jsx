@@ -1,6 +1,12 @@
+"use client";
+
 import myInfo from "@/data/myinfo.json";
+import { useResponsiveSpacing, useDeviceType } from "@/lib/hooks";
 
 export default function Skills() {
+  const spacing = useResponsiveSpacing();
+  const deviceType = useDeviceType();
+  
   const skillCategories = [
     {
       title: "Programming Languages",
@@ -59,47 +65,47 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-24 px-4 bg-secondary/10">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-4 text-foreground tracking-tight">
+    <section id="skills" className={`${spacing.section} ${spacing.container} bg-secondary/10`}>
+      <div className={`${deviceType === 'desktop' ? 'max-w-7xl' : 'max-w-6xl'} mx-auto`}>
+        <div className={`text-center ${deviceType === 'mobile' ? 'mb-8' : deviceType === 'tablet' ? 'mb-12' : 'mb-16'}`}>
+          <h2 className={`${deviceType === 'mobile' ? 'text-3xl' : deviceType === 'tablet' ? 'text-4xl' : deviceType === 'laptop' ? 'text-4xl' : 'text-5xl'} font-semibold ${deviceType === 'mobile' ? 'mb-3' : 'mb-4'} text-foreground tracking-tight`}>
             Technical Skills
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className={`${deviceType === 'mobile' ? 'text-base' : deviceType === 'tablet' ? 'text-lg' : 'text-xl'} text-muted-foreground ${deviceType === 'desktop' ? 'max-w-3xl' : 'max-w-2xl'} mx-auto`}>
             Modern technologies and tools I use to build exceptional web experiences
           </p>
         </div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className={`grid grid-cols-1 ${deviceType === 'tablet' ? 'md:grid-cols-2' : 'md:grid-cols-2'} ${deviceType === 'laptop' || deviceType === 'desktop' ? 'lg:grid-cols-3' : ''} ${deviceType === 'mobile' ? 'gap-4' : deviceType === 'tablet' ? 'gap-6' : 'gap-8'} ${deviceType === 'mobile' ? 'mb-12' : deviceType === 'tablet' ? 'mb-16' : 'mb-20'}`}>
           {skillCategories.map((category, index) => (
             <div
               key={index}
-              className={`group relative glassmorphism rounded-2xl p-6 border ${category.borderColor} ${category.hoverColor} transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl overflow-hidden`}
+              className={`group relative glassmorphism ${deviceType === 'mobile' ? 'rounded-xl p-4' : 'rounded-2xl p-6'} border ${category.borderColor} ${category.hoverColor} transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl overflow-hidden`}
             >
               {/* Background Gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl`}></div>
+              <div className={`absolute inset-0 bg-gradient-to-br ${category.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500 ${deviceType === 'mobile' ? 'rounded-xl' : 'rounded-2xl'}`}></div>
               
               <div className="relative z-10">
-                <div className="flex items-center space-x-4 mb-6">
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} border ${category.borderColor} flex items-center justify-center text-xl transform group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`flex items-center ${deviceType === 'mobile' ? 'space-x-3 mb-4' : 'space-x-4 mb-6'}`}>
+                  <div className={`${deviceType === 'mobile' ? 'w-10 h-10 text-lg' : 'w-12 h-12 text-xl'} rounded-xl bg-gradient-to-br ${category.color} border ${category.borderColor} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
                     {category.icon}
                   </div>
                   <div>
-                    <h3 className={`text-lg font-semibold text-foreground group-hover:${category.textColor} transition-colors duration-300`}>
+                    <h3 className={`${deviceType === 'mobile' ? 'text-base' : 'text-lg'} font-semibold text-foreground group-hover:${category.textColor} transition-colors duration-300`}>
                       {category.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground">
+                    <p className={`${deviceType === 'mobile' ? 'text-xs' : 'text-xs'} text-muted-foreground`}>
                       {category.skills.length} technologies
                     </p>
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-2">
+                <div className={`grid grid-cols-2 ${deviceType === 'mobile' ? 'gap-1.5' : 'gap-2'}`}>
                   {category.skills.map((skill, skillIndex) => (
                     <div
                       key={skillIndex}
-                      className="group/skill relative px-3 py-2 bg-secondary/30 text-foreground/80 rounded-lg text-sm font-medium border border-border/30 hover:bg-secondary/50 transition-all duration-300 cursor-default overflow-hidden"
+                      className={`group/skill relative ${deviceType === 'mobile' ? 'px-2 py-1.5 text-xs' : 'px-3 py-2 text-sm'} bg-secondary/30 text-foreground/80 rounded-lg font-medium border border-border/30 hover:bg-secondary/50 transition-all duration-300 cursor-default overflow-hidden`}
                     >
                       <span className="relative z-10">{skill}</span>
                       <div className={`absolute inset-0 bg-gradient-to-r ${category.color} opacity-0 group-hover/skill:opacity-100 transition-opacity duration-300`}></div>
@@ -113,13 +119,13 @@ export default function Skills() {
 
         {/* Relevant Courses */}
         <div className="text-center">
-          <h3 className="text-2xl font-semibold mb-6 text-foreground">Relevant Coursework</h3>
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          <h3 className={`${deviceType === 'mobile' ? 'text-xl' : 'text-2xl'} font-semibold ${deviceType === 'mobile' ? 'mb-4' : 'mb-6'} text-foreground`}>Relevant Coursework</h3>
+          <div className={`${deviceType === 'desktop' ? 'max-w-5xl' : 'max-w-4xl'} mx-auto`}>
+            <div className={`grid grid-cols-1 ${deviceType === 'mobile' ? 'gap-2' : deviceType === 'tablet' ? 'sm:grid-cols-2 gap-2.5' : 'sm:grid-cols-2 lg:grid-cols-3 gap-3'}`}>
               {myInfo.relevantCourses.map((course, index) => (
                 <div
                   key={index}
-                  className="px-4 py-2 bg-secondary/30 text-foreground/80 rounded-lg text-sm font-medium border border-border/30"
+                  className={`${deviceType === 'mobile' ? 'px-3 py-1.5 text-xs' : 'px-4 py-2 text-sm'} bg-secondary/30 text-foreground/80 rounded-lg font-medium border border-border/30`}
                 >
                   {course}
                 </div>
